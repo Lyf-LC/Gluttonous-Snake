@@ -1,2 +1,3 @@
-# Gluttonous-Snake
-贪吃蛇
+# Gluttonous-Snak
+>npm i
+>npm run dev
