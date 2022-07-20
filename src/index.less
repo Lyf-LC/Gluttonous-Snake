@@ -1,0 +1,89 @@
+@q:#b7d498;
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size:20px;
+  font-weight: bold;
+}
+#vessel{
+  width: 460px;
+  height: 520px;
+  border:10px solid #000;
+  margin:100px auto;
+  border-radius: 20px;
+  background-color:@q;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  .viev{
+    width: 350px;
+    height: 350px;
+    border: 2px solid #000;
+    position: relative;
+    //蛇
+    .snake{
+      position: absolute;
+      box-sizing: border-box;
+      :first-child{
+        background-color:black!important;
+        border-radius:50%;
+          color:#fff;
+          font-size:7px;
+      }
+      :last-child{
+        background-color:rgba(181, 154, 87, 0.873)
+      }
+      &>div{
+        box-sizing: border-box;
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        // border: 1px solid @q;
+        background: #000000;
+        background-color: rgba(113, 78, 19, 0.853);
+      }
+    }
+    //食物
+    .food{
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      left: 30px;
+      top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+
+      &>div{
+        width: 5px;
+        height: 5px;
+        background: #000000;
+        border-radius:50% ;
+        background-color: #fff;
+      }
+    }
+  }
+  //文字
+  .text{
+    width: 460px;
+    height: 40px;
+    display:flex;
+    justify-content: space-evenly;
+        align-items: center;
+    #begin{
+      border: 1px solid red;
+      text-align: center;
+      width: 140px;
+      height: 40px;
+      line-height: 40px;
+      background-color:#000;
+      color:red;
+      cursor: pointer;
+      transition: 0.3s;
+      &:active{
+        background-color:#fff
+      }
+    }
+  }
+}
