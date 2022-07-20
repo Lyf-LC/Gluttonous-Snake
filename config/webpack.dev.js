@@ -91,7 +91,7 @@ module.exports = {
         host:'localhost',
         open: true,
         port: 9000,
-        hot: false,
+        hot: true,
     },
     // 模式，指定生产环境和开发环境
     mode: 'development',//开发环境

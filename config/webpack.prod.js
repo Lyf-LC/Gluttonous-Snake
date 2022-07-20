@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const PreloadWebpackPlugin = require("@vue/preload-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 // 封装stale函数
 getStyleLoad = pre => [MiniCssExtractPlugin.loader,
     "css-loader",
@@ -69,9 +70,9 @@ module.exports = {
                             },
                         },
                         // 输出图片名称
-                        // generator: {
-                        //     filename: "./images/[hash][ext][query]"
-                        // },
+                        generator: {
+                            filename: "./images/[hash][ext][query]"
+                        },
                     },
                     {
                         test: /\.(ttf|woff|woff2)$/,
@@ -113,16 +114,17 @@ module.exports = {
         new HtmlWebpackPlugin({
             // 复制一个HTML文件
             template: resolve(__dirname, '../src/index.html'),
-            // minify: {
-            //     collapseWhitespace: true, // 去除回车换行符以及多余空格
-            //     removeComments: true, // 删除注释
-            // }
+            minify: {
+                collapseWhitespace: true, // 去除回车换行符以及多余空格
+                removeComments: true, // 删除注释
+            }
         }),
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].chunk.css",
         }),
         new CssMinimizerPlugin(),
+        new TerserPlugin({ test: /\.js$/}),
         new PreloadWebpackPlugin({
             rel: "preload", // preload兼容性更好
             as: "script",
