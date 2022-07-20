@@ -94,8 +94,8 @@ module.exports = {
         hot: false,
     },
     // 模式，指定生产环境和开发环境
-    // mode: 'development',//开发环境
-    mode: 'production',//生产环境
+    mode: 'development',//开发环境
+//     mode: 'production',//生产环境
     // 生成源映射
     devtool: "cheap-module-source-map",
 }
